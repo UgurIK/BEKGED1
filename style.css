@@ -1,0 +1,638 @@
+/* General Body Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    /* Light gray background */
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+    display: flex;
+    /* For sticky footer */
+    flex-direction: column;
+    /* For sticky footer */
+    min-height: 100vh;
+    /* For sticky footer */
+}
+
+/* Header Styles */
+header {
+    background-color: #2c3e50;
+    /* Dark blue-gray */
+    color: #ecf0f1;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+header h1 img {
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+header h1 span {
+    color: #ecf0f1;
+}
+
+/* Navigation Styles */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    position: relative;
+    /* For sub-menu positioning */
+}
+
+nav ul li {
+    margin-left: 25px;
+    position: relative;
+    /* For dropdown arrows and positioning */
+}
+
+nav ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 0;
+    display: block;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a:hover:not(.disabled-link) {
+    color: #3498db;
+    /* Bright blue for hover */
+    transform: translateY(-2px);
+}
+
+nav ul li a.disabled-link {
+    color: #ecf0f1;
+    /* Muted color for disabled links */
+    cursor: not-allowed;
+    pointer-events: none;
+    /* Prevent clicks */
+}
+
+/* Sub-menu Styles */
+nav ul li .alt-menu {
+    display: none;
+    position: absolute;
+    background-color: #34495e;
+    /* Slightly lighter dark blue-gray */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    min-width: 180px;
+    z-index: 10;
+    border-radius: 5px;
+    padding: 10px 0;
+    top: 100%;
+    /* Position below the parent link */
+    left: 0;
+}
+
+nav ul li:hover .alt-menu {
+    display: block;
+}
+
+nav ul li .alt-menu li {
+    margin: 0;
+}
+
+nav ul li .alt-menu li a {
+    padding: 8px 20px;
+    white-space: nowrap;
+    color: #ecf0f1;
+    font-weight: normal;
+}
+
+nav ul li .alt-menu li a:hover {
+    background-color: #2980b9;
+    /* Darker blue on hover */
+    color: #fff;
+    transform: none;
+    /* Reset transform for sub-menu items */
+}
+
+/* Social Buttons */
+.sosyal-butonlar {
+    display: flex;
+    gap: 15px;
+}
+
+.sosyal-butonlar a {
+    color: #ecf0f1;
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.sosyal-butonlar a:hover {
+    color: #3498db;
+    transform: scale(1.1);
+}
+
+/* Section Header (üstBaslik) */
+.section-header {
+    background-color: #2ca096;
+    /* Turkuaz rengi */
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 2.2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Main Content Area */
+main {
+    flex-grow: 1;
+    /* Allow main content to grow and push footer down */
+    padding: 20px;
+    max-width: 1200px;
+    /* Ana sayfa ve diğer tüm sayfalar için sabit maksimum genişlik */
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Page Sections */
+.sayfa {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.sayfa.gizli {
+    display: none;
+}
+
+/* Consistent flex distribution for content and sidebar across all relevant pages */
+.icerik-ve-duyuru {
+    display: flex;
+    gap: 30px;
+    /* Space between content and sidebar */
+    align-items: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.yazi-uzerinde {
+    flex: 3;
+    padding: 40px;
+    /* Mevcut */
+    background-color: #f9f9f9;
+    /* Mevcut */
+    border-radius: 8px;
+    /* Mevcut */
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+    /* Mevcut */
+    min-width: 0;
+    /* Mevcut */
+    /* === YENİ EKLENEN SATIRLAR === */
+    height: 600px;
+    /* Sabit yükseklik değeri, ihtiyaca göre değiştirebilirsiniz */
+    overflow-y: auto;
+    /* İçerik taştığında dikey kaydırma çubuğu çıkarır */
+    box-sizing: border-box;
+    /* Yüksekliğe padding ve border'ı dahil eder */
+    /* ============================ */
+}
+
+/* Specific styling for the sidebar to have a fixed, smaller width */
+.duyurular-sabiti-container {
+    flex-basis: 280px;
+    /* Fixed width for the sidebar */
+    flex-shrink: 0;
+    /* Prevent sidebar from shrinking below its basis */
+    position: sticky;
+    top: 90px;
+    /* Sticking below the header */
+    max-height: calc(100vh - 120px);
+    /* Adjust based on viewport height */
+    overflow-y: auto;
+    /* Scroll if content overflows */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* When the sidebar is hidden (via JS setting display: none), the content area takes full width */
+/* :has() pseudo-class checks if .icerik-ve-duyuru has a .duyurular-sabiti-container child with display: none */
+.icerik-ve-duyuru:has(> .duyurular-sabiti-container[style*="display: none"]) .yazi-uzerinde {
+    flex: 1;
+    /* Content takes full width when sidebar is absent/hidden */
+}
+
+/* Proje Kartları (Genel) */
+.proje-kartlari {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    /* Kartlar arası boşluk */
+    justify-content: center;
+    /* Kartları ortala */
+    padding: 20px;
+}
+
+.proje-karti {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    /* Allows cards to be responsive within their container */
+    max-width: 350px;
+    /* Project card maximum width - keeps individual cards readable */
+    margin: 0;
+}
+
+.proje-karti:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.proje-karti a {
+    text-decoration: none;
+    display: block;
+    color: inherit;
+}
+
+.proje-karti .proje-baslik {
+    padding: 15px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #2c3e50;
+    background-color: #f0f3f5;
+    text-align: center;
+    border-bottom: 2px solid #3498db;
+}
+
+.proje-karti a:hover .proje-baslik {
+    color: #3498db;
+}
+
+/* Yönetim Kurulu Kartları için Özel Ayarlar */
+#yonetim-kurulu .proje-karti {
+    max-width: 800px;
+    /* Management board cards can be wider */
+}
+
+/* Yönetim Kurulu kart içeriği için Flexbox düzeni */
+.yonetim-kurulu-icerik {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+}
+
+.yonetim-kurulu-icerik img {
+    flex-shrink: 0;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.yonetim-kurulu-icerik p {
+    flex-grow: 1;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Gönüllüler kartları için özel stil (görsel olmadığı için) */
+#gonulluler .proje-karti a p {
+    padding: 0 20px 20px 20px;
+    margin: 0;
+}
+
+/* Duyurular Sidebar Content Styling */
+.duyurular {
+    background-color: #eaf3f8;
+    /* Açık mavi tonu */
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #cce7f3;
+}
+
+.duyurular h3 {
+    margin-top: 0;
+    color: #2980b9;
+    /* Koyu mavi */
+    font-size: 1.4rem;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #bbdff0;
+}
+
+.duyurular-baslik-link {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+}
+
+.duyurular-baslik-link:hover {
+    text-decoration: underline;
+    color: #3498db;
+}
+
+.duyuru-karti {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.duyuru-karti:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.duyuru-karti .duyuru-tarih {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    margin-bottom: 5px;
+}
+
+.duyuru-karti a {
+    text-decoration: none;
+    color: #34495e;
+    font-weight: bold;
+    display: block;
+}
+
+.duyuru-karti a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* Galeri Styles */
+.galeri-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* Yan yana 5 sütun */
+    gap: 20px;
+    padding: 20px;
+}
+
+.galeri-item {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeri-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.galeri-item img {
+    width: 100%;
+    height: 400px;
+    /* 200px yerine 2 katı */
+    object-fit: cover;
+    display: block;
+}
+
+
+/* Hidden H2 for SEO/Accessibility */
+.hidden-h2 {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Başvuru Linki */
+.basvuru-linki {
+    display: inline-block;
+    background-color: #28a745;
+    /* Yeşil renk */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.basvuru-linki:hover {
+    background-color: #218838;
+    /* Koyu yeşil */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: auto;
+    /* Push footer to the bottom */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Düzenlemeler */
+@media (max-width: 1024px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 5px 10px;
+    }
+
+    .icerik-ve-duyuru {
+        flex-direction: column;
+        /* On smaller screens, stack content and sidebar vertically */
+        gap: 20px;
+    }
+
+    .duyurular-sabiti-container {
+        position: static;
+        /* Sidebar becomes static (not sticky) on smaller screens */
+        max-height: none;
+        overflow-y: visible;
+        width: 100%;
+        /* Sidebar takes full width when stacked */
+        flex-basis: auto;
+        /* Remove fixed basis on smaller screens */
+    }
+
+    main {
+        padding: 10px;
+        margin: 10px auto;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    header h1 img {
+        height: 40px;
+    }
+
+    nav ul li a {
+        padding: 8px 0;
+    }
+
+    .section-header {
+        font-size: 1.8rem;
+        padding: 1rem 0;
+    }
+
+    .proje-kartlari {
+        padding: 10px;
+    }
+
+    .proje-karti {
+        max-width: 100%;
+        /* Mobile devices: cards take full width */
+    }
+
+    /* Yönetim Kurulu İçerik (Küçük ekranlarda görsel ve metin alt alta geçsin) */
+    .yonetim-kurulu-icerik {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .yonetim-kurulu-icerik img {
+        margin-bottom: 15px;
+    }
+
+    .yonetim-kurulu-icerik p {
+        padding: 0;
+    }
+
+    .galeri-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        /* Daha geniş mobil cihazlarda daha fazla sütun için ayar */
+    }
+}
+
+@media (max-width: 480px) {
+    .sosyal-butonlar {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .duyurular h3 {
+        font-size: 1.2rem;
+    }
+
+    .duyuru-karti {
+        padding: 8px 10px;
+    }
+}
+
+/* Lightbox Stil */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.lightbox img.lightbox-image {
+    max-width: 90%;
+    max-height: 80%;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.lightbox-caption {
+    background-color: #000;
+    color: #fff;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    z-index: 10000;
+    transition: color 0.2s ease;
+}
+
+.close-lightbox:hover {
+    color: #f00;
+}
+
+/* ... (diğer CSS kurallarınız) */
+
+/* Duyuru Detay Sayfası Tarih Stili */
+.duyuru-detay-tarih {
+    font-size: 0.95rem;
+    /* Biraz daha küçük font boyutu */
+    color: #555;
+    /* Koyu gri renk */
+    margin-bottom: 15px;
+    /* Detay paragrafından önce boşluk */
+    padding-bottom: 10px;
+    /* Altına ince bir çizgi için boşluk */
+    border-bottom: 1px solid #eee;
+    /* İnce, açık gri ayırıcı çizgi */
+    font-style: italic;
+    /* İtalik stil */
+    text-align: right;
+    /* Sağa yaslı (isteğe bağlı) */
+}
+
+/* ... (diğer CSS kurallarınız) */
